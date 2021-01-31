@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color:white;
 }
 ol, ul {
 	list-style: none;
@@ -53,5 +54,52 @@ table {
 strong{
 	font-weight:bold;
 }
-  }
-`;
+
+h1,h2,h3,h4,h5,h6,p,span,label,button{
+	font-family: 'Roboto', sans-serif;
+}
+h1{
+	font-size:1.8rem;
+}
+h2{
+	font-size:1.6rem;
+}
+
+h3{
+	font-size:1.3rem;
+}
+
+h4{
+	font-size:1.2rem;
+}
+
+h5{
+	font-size:1.1rem;
+}
+
+h6{
+	font-size:1rem;
+}
+
+
+p{
+	font-size:0.9rem;
+}
+
+a{
+	text-decoration: none;
+	color:inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+  
+  }`;

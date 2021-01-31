@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import EmployeeCard from "./EmployeeCard";
 import SearchBar from "./Searchbar";
 import { getEmployeeList } from "../actions";
 import { useSelector, useDispatch } from "react-redux";
+import { BsPlusCircleFill } from "react-icons/bs";
 
 import Modal from "./Modal";
+import { Link } from "react-router-dom";
 
 const EmployeeContainer = styled.div`
   display: grid;
@@ -19,18 +21,22 @@ const EmployeeContainer = styled.div`
   }
 `;
 
+const AddIconWrapper = styled.div`
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+`;
+
 export default function Home() {
   const employees = useSelector((state) => state.employees);
   const [filteredEmployees, setFilteredEmployees] = useState();
-  const googleId = useRef()
-
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     async function getPeople() {
       setFilteredEmployees(null);
-      const userGoogleId = await localStorage.getItem('userGoogleId')
+      const userGoogleId = await localStorage.getItem("userGoogleId");
       dispatch(getEmployeeList(userGoogleId));
     }
     getPeople();
@@ -51,6 +57,11 @@ export default function Home() {
           setFilteredEmployees={setFilteredEmployees}
         />
       </EmployeeContainer>
+      <Link to="/form">
+        <AddIconWrapper>
+          <BsPlusCircleFill fontSize="50px" color="#122620" />
+        </AddIconWrapper>
+      </Link>
     </>
   );
 }

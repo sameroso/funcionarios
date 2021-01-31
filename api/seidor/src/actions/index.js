@@ -1,22 +1,22 @@
 import axios from "axios";
 
 export const getEmployeeList = (googleId) => async (dispatch) => {
-  const response = await axios.get(`/api/${googleId}`);
+  const response = await axios.get(`https://seidor.herokuapp.com/api/${googleId}`);
   dispatch({ type: "FETCH_USER", payload: response.data });
 };
 
 export const saveEmployee = (formValues, googleId) => async (dispatch) => {
-  const response = await axios.post("/api", {...formValues, user:googleId});
+  const response = await axios.post("https://seidor.herokuapp.com/api", {...formValues, user:googleId});
   dispatch({ type: "SAVE_USER", payload: response.data });
 };
 
 export const deleteEmployee = (id) => async (dispatch) => {
-  const response = await axios.delete(`/api/${id}`);
+  const response = await axios.delete(`https://seidor.herokuapp.com/api/${id}`);
   dispatch({ type: "DELETE_USER", payload: response.data });
 };
 
 export const editEmployee = (formValues) => async (dispatch) => {
-  const response = await axios.patch("/api", formValues);
+  const response = await axios.patch("https://seidor.herokuapp.com/api/", formValues);
   dispatch({ type: "FETCH_USER", payload: response.data });
 };
 

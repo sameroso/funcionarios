@@ -33,5 +33,5 @@ export default function SearchBar({ setFilteredEmployees }) {
     });
     setFilteredEmployees(filteredArr);
   };
-  return <Input onChange={searchEmployee} />;
+  return <Input onChange={searchEmployee} placeholder="pesquise aqui seus funcionários"/>;
 }

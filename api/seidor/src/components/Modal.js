@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteEmployee, selectEmployee } from "../actions/index";
 import styled from "styled-components";
+import { toast } from "react-toastify";
 
 const ModalContainer = styled.div`
   border: 1px solid black;
@@ -31,7 +32,7 @@ const ShadowArea = styled.div`
   opacity: ${(props) => (props.id ? "1" : "0")};
 `;
 const Head = styled.div`
-  background-color: blue;
+  background-color: #122620;
   padding: 1rem;
   color: white;
 `;
@@ -46,11 +47,18 @@ const BtnContainer = styled.div`
 `;
 const ConfirmButton = styled.button`
   border-radius: 5px;
-  background-color: orange;
+  font-size:1rem;
+  color:#F4EBD0;
+  background-color: #122620;
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
 `;
 
 const CancelButton = styled.button`
   margin-right: 1rem;   
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  font-size:1rem
 `;
 
 export default function Modal({ filteredEmployees, setFilteredEmployees }) {
@@ -62,6 +70,7 @@ export default function Modal({ filteredEmployees, setFilteredEmployees }) {
   async function removeEmployee() {
     try {
       await dispatch(deleteEmployee(employee?._id));
+      toast.success('Empregado removido com sucesso')
       const newList = filteredEmployees.filter((employees) => {
         return employees._id !== employee._id;
       });

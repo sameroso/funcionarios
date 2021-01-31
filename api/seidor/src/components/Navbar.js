@@ -3,18 +3,38 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../actions";
+import { FiLogOut } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const NavContainer = styled.div`
   position: sticky;
   width: 100%;
   top: 0;
-  background-color: red;
 `;
 NavContainer.list = styled.ul`
   display: flex;
   justify-content: space-between;
-  background-color: red;
-  padding: 20px;
+  align-items: center;
+  background-color: #122620;
+  padding: 0.5rem 2rem;
+  color: #f4ebd0;
+`;
+
+const UserWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const Img = styled.img`
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 1rem;
+`;
+
+const LogoutIcon = styled.div`
+  cursor: pointer;
 `;
 
 export default function Navbar() {
@@ -51,11 +71,15 @@ export default function Navbar() {
   return (
     <NavContainer>
       <NavContainer.list>
-        <div>
-          <img src={userPic} />
-          <li>{userName}</li>
-        </div>
-        <li onClick={logout}>Sair</li>
+        <Link to="/">
+          <UserWrapper>
+            <Img src={userPic} />
+            <h4>{userName}</h4>
+          </UserWrapper>
+        </Link>
+        <LogoutIcon onClick={logout}>
+          <FiLogOut />
+        </LogoutIcon>
       </NavContainer.list>
     </NavContainer>
   );
