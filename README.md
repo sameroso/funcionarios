@@ -1,42 +1,6 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@sameroso 
-sameroso
-/
-passwordstorage
-1
-00
-Code
-Issues
-Pull requests
-3
-Actions
-Projects
-Wiki
-Security
-4
-Insights
-Settings
-passwordstorage
-/
-README.md
- 
-
-Spaces
-
+# Cadastro de funcionários
 2
-
-Soft wrap
-1
-# Password Storage
-2
-> Aplicação apresenta um website usando Node.js, Express e MongoDB no backend e ReactJs no frontend, que tem a função de armazenar as senhas dos usuários em um único lugar
+> Aplicação apresenta um website usando Node.js, Express e MongoDB no backend e ReactJs no frontend, que tem a função salvar, editar , deletar e listar empregados 
 3
 ​
 4
